@@ -20,6 +20,9 @@
 
 //Game over when all elements with queen, worker, drone classes = 0
 
+const showWinMessage = document.getElementById("message");
+const removeDeadShips = document.getElementById("test");
+
 class MainShip {
   constructor(hitPoints, damage) {
     this.hitPoints = hitPoints;
@@ -30,7 +33,8 @@ class MainShip {
     if (this.hitPoints >= this.damage) {
       this.hitPoints -= this.damage;
     } else {
-      return (this.hitPoints = 0);
+      removeDeadShips.id = "dead";
+      return this.hitPoints = 0;
     }
   }
 }
@@ -40,7 +44,8 @@ class Queen extends MainShip {
   damage = 7;
 
   everyoneDies(){
-          alert("Queen is DED all aliens DED everyone DED");
+    showWinMessage.innerHTML = "Woo! Earth is saved!";
+    showWinMessage.id = "win";
       }
 }
 
@@ -87,20 +92,20 @@ const doDamage = () => {
 button.onclick = doDamage;
 
 const showHitPoint = () => {
-  document.getElementById("queen").innerHTML = `&#10084; ${onlyQueen.hitPoints}`;
-  document.getElementById("worker1").innerHTML = `&#10084; ${worker1.hitPoints}`;
-  document.getElementById("worker2").innerHTML = `&#10084; ${worker2.hitPoints}`;
-  document.getElementById("worker3").innerHTML = `&#10084; ${worker3.hitPoints}`;
-  document.getElementById("worker4").innerHTML = `&#10084; ${worker4.hitPoints}`;
-  document.getElementById("worker5").innerHTML = `&#10084; ${worker5.hitPoints}`;
-  document.getElementById("drone1").innerHTML = `&#10084; ${drone1.hitPoints}`;
-  document.getElementById("drone2").innerHTML = `&#10084; ${drone2.hitPoints}`;
-  document.getElementById("drone3").innerHTML = `&#10084; ${drone3.hitPoints}`;
-  document.getElementById("drone4").innerHTML = `&#10084; ${drone4.hitPoints}`;
-  document.getElementById("drone5").innerHTML = `&#10084; ${drone5.hitPoints}`;
-  document.getElementById("drone6").innerHTML = `&#10084; ${drone6.hitPoints}`;
-  document.getElementById("drone7").innerHTML = `&#10084; ${drone7.hitPoints}`;
-  document.getElementById("drone8").innerHTML = `&#10084; ${drone8.hitPoints}`;
+  document.getElementById("queen").innerHTML = `&#10084;${onlyQueen.hitPoints}`;
+  document.getElementById("worker1").innerHTML = `&#10084;${worker1.hitPoints}`;
+  document.getElementById("worker2").innerHTML = `&#10084;${worker2.hitPoints}`;
+  document.getElementById("worker3").innerHTML = `&#10084;${worker3.hitPoints}`;
+  document.getElementById("worker4").innerHTML = `&#10084;${worker4.hitPoints}`;
+  document.getElementById("worker5").innerHTML = `&#10084;${worker5.hitPoints}`;
+  document.getElementById("drone1").innerHTML = `&#10084;${drone1.hitPoints}`;
+  document.getElementById("drone2").innerHTML = `&#10084;${drone2.hitPoints}`;
+  document.getElementById("drone3").innerHTML = `&#10084;${drone3.hitPoints}`;
+  document.getElementById("drone4").innerHTML = `&#10084;${drone4.hitPoints}`;
+  document.getElementById("drone5").innerHTML = `&#10084;${drone5.hitPoints}`;
+  document.getElementById("drone6").innerHTML = `&#10084;${drone6.hitPoints}`;
+  document.getElementById("drone7").innerHTML = `&#10084;${drone7.hitPoints}`;
+  document.getElementById("drone8").innerHTML = `&#10084;${drone8.hitPoints}`;
 };
 
 showHitPoint();
