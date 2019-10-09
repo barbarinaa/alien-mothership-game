@@ -25,8 +25,8 @@ const showWinMessage = document.getElementById("message");
 
 const shipDead = targetIndex => {
   let removeDeadShips = [...document.getElementsByClassName("space")];
-  removeDeadShips[targetIndex].classList.remove("space");
-  console.log("died");
+  // removeDeadShips[targetIndex].classList.remove("space");
+  removeDeadShips[targetIndex].classList.add("dead");
 };
 
 class MainShip {
@@ -45,8 +45,8 @@ class MainShip {
 }
 
 class Queen extends MainShip {
-  hitPoints = 40;
-  damage = 47;
+  hitPoints = 80;
+  damage = 7;
 
   takeHit(targetIndex) {
     this.hitPoints -= this.damage;
@@ -56,91 +56,52 @@ class Queen extends MainShip {
   }
 
   everyoneDies() {
-    console.log("dead");
     showWinMessage.innerHTML = "The Master is dead! Earth is saved!";
     showWinMessage.id = "win";
   }
 }
 
 class Worker extends MainShip {
-  hitPoints = 20;
+  hitPoints = 68;
   damage = 10;
 }
 
 class Drone extends MainShip {
-  hitPoints = 20;
+  hitPoints = 60;
   damage = 12;
 }
 
-//// Creating objects
+const onlyQueen = new Queen();
+const worker1 = new Worker();
+const worker2 = new Worker();
+const worker3 = new Worker();
+const worker4 = new Worker();
+const worker5 = new Worker();
+const drone1 = new Drone();
+const drone2 = new Drone();
+const drone3 = new Drone();
+const drone4 = new Drone();
+const drone5 = new Drone();
+const drone6 = new Drone();
+const drone7 = new Drone();
+const drone8 = new Drone();
 
-// const targets = [
-//   {
-//     name: "Queen",
-//     number: 1
-//   },
-//   {
-//     name: "Worker",
-//     number: 5
-//   },
-//   {
-//     name: "Drone",
-//     number: 8
-//   }
-// ];
-
-const ships = [];
-
-const numQueens = 1;
-const numWorkers = 5;
-const numDrones = 8;
-
-for (let i = 0; i <= numQueens; i++) {
-  let onlyQueen = new Queen();
-  ships.push(onlyQueen);
-}
-
-for (let i = 0; i <= numWorkers; i++) {
-  let worker = new Worker();
-  ships.push(worker);
-}
-
-for (let i = 0; i <= numDrones; i++) {
-  let drone = new Drone();
-  ships.push(drone);
-}
-
-// const onlyQueen = new Queen();
-// const worker1 = new Worker();
-// const worker2 = new Worker();
-// const worker3 = new Worker();
-// const worker4 = new Worker();
-// const worker5 = new Worker();
-// const drone1 = new Drone();
-// const drone2 = new Drone();
-// const drone3 = new Drone();
-// const drone4 = new Drone();
-// const drone5 = new Drone();
-// const drone6 = new Drone();
-// const drone7 = new Drone();
-// const drone8 = new Drone();
-
-// const ships = [
-//   onlyQueen,
-//   worker1,
-//   worker2,
-//   worker3,
-//   worker4,
-//   worker5,
-//   drone1,
-//   drone2,
-//   drone3,
-//   drone4,
-//   drone5,
-//   drone6,
-//   drone7,
-//   drone8
-// ];
+const ships = [
+  onlyQueen,
+  worker1,
+  worker2,
+  worker3,
+  worker4,
+  worker5,
+  drone1,
+  drone2,
+  drone3,
+  drone4,
+  drone5,
+  drone6,
+  drone7,
+  drone8
+];
 
 const button = document.getElementById("button");
 
@@ -171,16 +132,5 @@ const showHitPoint = () => {
   document.getElementById("drone7").innerHTML = `&#10084;${drone7.hitPoints}`;
   document.getElementById("drone8").innerHTML = `&#10084;${drone8.hitPoints}`;
 };
-
-// const showHitPoint = () => {
-// const hitArray = [...document.getElementsByClassName("test")];
-// ships[i].innerHTML = `&#10084;${hitArray[i].hitPoints}`;
-// for(element of array){} => `&#10084;${element.innerHTML.hitPoints}`);
-// const showHitPoint = () => {
-//   for (element of hitArray) {
-//     element.innerHTML = `&#10084;${hitArray[element].hitPoints}`;
-//     return element.innerHTML;
-//   }
-// };
 
 showHitPoint();

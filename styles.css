@@ -15,8 +15,14 @@ body {
 }
 
 h1 {
+    padding-top: 50px;
     font-size: 40px;
     font-weight: 900;
+}
+
+h3 {
+    padding-top: 200px;
+    font-size: 100px;
 }
 
 .main-container {
@@ -68,11 +74,14 @@ div > p {
     height: 195px;
     width: 200px;
     margin: 0 auto;
-    margin-top: 15px;
+    margin-top: 45px;
 }
 
 #button:hover {
    transform: scale(1.1);
+   -moz-box-shadow: inset 10px 10px 50px #fff;
+  -webkit-box-shadow: inset 10px 10px 50px #fff;
+  box-shadow: inset 10px 10px 50px #fff;
 }
 
 .main-container div {
@@ -84,11 +93,18 @@ div > p {
 }
 
 h2 {
-    margin-top: 9px;
+    margin-top: 15px;
 }
 
 .dead {
-    display: none;
+    background-image: url("https://media.giphy.com/media/8FGMuS6Bj4MyP1NA5h/giphy.gif");
+    background-size: center;
+    background-repeat: no-repeat;
+}
+
+.dead > p {
+    /* color:red; */
+    opacity: 0;
 }
 
 #message {
@@ -105,3 +121,10 @@ h2 {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/* #click {
+    box-shadow: 10px 10px 5px red;
+      -moz-box-shadow: 10px 10px 5px red;
+      -webkit-box-shadow: 10px 10px 5px red;
+      -khtml-box-shadow: 10px 10px 5px red;
+} */
