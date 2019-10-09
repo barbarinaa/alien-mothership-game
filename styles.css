@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 900;
 }
 
@@ -26,20 +26,19 @@ h1 {
     justify-content: center;
     width: 100%;
     height: auto;
-    margin-top: 3%;
+    margin-top: 20px;
     align-content: center;
 }
 
 div {
-    height: 120px;
+    height: 100px;
     width: 170px;
-    margin-top: 4%;
+    margin-top: 35px;
 }
 
 div > p {
-    font-size: 22px;
-    font-weight: 500;
-    padding-top: 75%;
+    font-size: 20px;
+    padding-top: 90px;
     text-align: center;
     letter-spacing: 0;
 }
@@ -66,21 +65,29 @@ div > p {
     background-image: url("./images/tardis.png");
     background-size: cover;
     cursor: pointer;
-    height: 220px;
+    height: 195px;
     width: 200px;
     margin: 0 auto;
-    margin-top: 5%;
-}
-
-#button:hover {
-    border: 3px solid white;
-}
-
-h2 {
     margin-top: 15px;
 }
 
-#dead {
+#button:hover {
+   transform: scale(1.1);
+}
+
+.main-container div {
+    display: none;
+}
+
+.main-container .space {
+    display: block;
+}
+
+h2 {
+    margin-top: 9px;
+}
+
+.dead {
     display: none;
 }
 
@@ -89,6 +96,12 @@ h2 {
 }
 
 #win {
+    position: absolute;
     color: red;
-    font-size: 44px;
+    font-size: 38px;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://media.giphy.com/media/yofF3jZzbvUgE/giphy.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
 }

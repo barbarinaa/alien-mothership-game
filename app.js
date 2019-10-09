@@ -3,25 +3,31 @@
 //create a button x
 //button on click targets random element x
 
-//create a Ship class (common traits: each have hitPoints, each can take damage, each die when hitpoint 0)
-//Ship class has hitPoint variable
+//create a Ship class (common traits: each have hitPoints, each can take damage, each die when hitpoint 0) x
+//Ship class has hitPoint variable x
 //create Queen, Drones, Worker subclass which inherit the ship class instances x
 
-//Queen subclass has a hitPoint variable which has maximum of 80
-//Queen subclass has damage() which deducts 7 from hitPoint
-// if hitPoint == 0 then game over;
+//Queen subclass has a hitPoint variable which has maximum of 80 x
+//Queen subclass has damage() which deducts 7 from hitPoint x
+// if hitPoint == 0 then game over; x
 
-////Drone subclass has a hitPoint variable which has maximum of 60
-//Drone subclass has damage() which deducts 12 from hitPoint
-// if hitPoint == 0 then the element with the class is unreachable/loses the drone class;
+////Drone subclass has a hitPoint variable which has maximum of 60 x
+//Drone subclass has damage() which deducts 12 from hitPoint x
+// if hitPoint == 0 then the element with the class is unreachable/can't be hit; x
 
-//Worker subclass has a hitPoint variable which has maximum of 68
-//Worker subclass has damage() which deducts 10 from hitpoint
+//Worker subclass has a hitPoint variable which has maximum of 68 x
+//Worker subclass has damage() which deducts 10 from hitpoint x
+// if hitPoint == 0 then the element with the class is unreachable/can't be hit; x
 
-//Game over when all elements with queen, worker, drone classes = 0
+//Game over when all elements with queen, worker, drone classes = 0 / queen dead x
 
 const showWinMessage = document.getElementById("message");
-const removeDeadShips = document.getElementById("test");
+
+const shipDead = targetIndex => {
+  let removeDeadShips = [...document.getElementsByClassName("space")];
+  removeDeadShips[targetIndex].classList.remove("space");
+  console.log("died");
+};
 
 class MainShip {
   constructor(hitPoints, damage) {
@@ -29,33 +35,40 @@ class MainShip {
     this.damage = damage;
   }
 
-  takeHit() {
-    if (this.hitPoints >= this.damage) {
-      this.hitPoints -= this.damage;
-    } else {
-      removeDeadShips.id = "dead";
-      return this.hitPoints = 0;
+  takeHit(targetIndex) {
+    this.hitPoints -= this.damage;
+    if (this.hitPoints <= 0) {
+      this.hitPoints = 0;
+      shipDead(targetIndex);
     }
   }
 }
 
 class Queen extends MainShip {
-  hitPoints = 80;
-  damage = 7;
+  hitPoints = 40;
+  damage = 47;
 
-  everyoneDies(){
-    showWinMessage.innerHTML = "Woo! Earth is saved!";
+  takeHit(targetIndex) {
+    this.hitPoints -= this.damage;
+    if (this.hitPoints <= 0) {
+      this.everyoneDies();
+    }
+  }
+
+  everyoneDies() {
+    console.log('dead');
+    showWinMessage.innerHTML = "The Master is dead! Earth is saved!";
     showWinMessage.id = "win";
-      }
+  }
 }
 
 class Worker extends MainShip {
-  hitPoints = 68;
+  hitPoints = 20;
   damage = 10;
 }
 
 class Drone extends MainShip {
-  hitPoints = 60;
+  hitPoints = 20;
   damage = 12;
 }
 
@@ -74,20 +87,33 @@ const drone6 = new Drone();
 const drone7 = new Drone();
 const drone8 = new Drone();
 
-const ships = [onlyQueen, worker1, worker2, worker3, worker4, worker5, drone1, drone2, drone3, drone4, drone5, drone6, drone7, drone8];
+const ships = [
+  onlyQueen,
+  worker1,
+  worker2,
+  worker3,
+  worker4,
+  worker5,
+  drone1,
+  drone2,
+  drone3,
+  drone4,
+  drone5,
+  drone6,
+  drone7,
+  drone8
+];
 
 const button = document.getElementById("button");
 
 const doDamage = () => {
-  if (onlyQueen.hitPoints === 0) {
-    return onlyQueen.everyoneDies();
-  } else {
     survivingShips = ships.filter(ship => {
       return ship.hitPoints > 0;
     });
-    survivingShips[Math.floor(Math.random() * survivingShips.length)].takeHit();
+    const targetIndex = Math.floor(Math.random() * survivingShips.length);
+    survivingShips[targetIndex].takeHit(targetIndex);
+
     showHitPoint();
-  }
 };
 button.onclick = doDamage;
 
@@ -106,6 +132,8 @@ const showHitPoint = () => {
   document.getElementById("drone6").innerHTML = `&#10084;${drone6.hitPoints}`;
   document.getElementById("drone7").innerHTML = `&#10084;${drone7.hitPoints}`;
   document.getElementById("drone8").innerHTML = `&#10084;${drone8.hitPoints}`;
+
 };
+
 
 showHitPoint();
