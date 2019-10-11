@@ -95,13 +95,14 @@ h2 {
     margin-top: 15px;
 }
 
-.dead {
+.main-container .dead {
     background-image: url("https://media.giphy.com/media/8FGMuS6Bj4MyP1NA5h/giphy.gif");
     background-size: center;
     background-repeat: no-repeat;
+    display: block;
 }
 
-.dead > p {
+.main-container .dead > p {
     /* color:red; */
     opacity: 0;
 }

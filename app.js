@@ -25,8 +25,8 @@ const showWinMessage = document.getElementById("message");
 
 const shipDead = targetIndex => {
   let removeDeadShips = [...document.getElementsByClassName("space")];
-  // removeDeadShips[targetIndex].classList.remove("space");
   removeDeadShips[targetIndex].classList.add("dead");
+  removeDeadShips[targetIndex].classList.remove("space");
 };
 
 class MainShip {
@@ -71,37 +71,58 @@ class Drone extends MainShip {
   damage = 12;
 }
 
-const onlyQueen = new Queen();
-const worker1 = new Worker();
-const worker2 = new Worker();
-const worker3 = new Worker();
-const worker4 = new Worker();
-const worker5 = new Worker();
-const drone1 = new Drone();
-const drone2 = new Drone();
-const drone3 = new Drone();
-const drone4 = new Drone();
-const drone5 = new Drone();
-const drone6 = new Drone();
-const drone7 = new Drone();
-const drone8 = new Drone();
+const addAliens = () => {
+  const alienArray = [];
+  const numWorkers = 5;
+  const numDrones = 8;
 
-const ships = [
-  onlyQueen,
-  worker1,
-  worker2,
-  worker3,
-  worker4,
-  worker5,
-  drone1,
-  drone2,
-  drone3,
-  drone4,
-  drone5,
-  drone6,
-  drone7,
-  drone8
-];
+  const queen = new Queen();
+  alienArray.push(queen);
+
+  for (let i = 0; i < numWorkers; i++) {
+    const worker = new Worker();
+    alienArray.push(worker);
+  }
+
+  for (let i = 0; i < numDrones; i++) {
+    const drone = new Drone();
+    alienArray.push(drone);
+  }
+};
+
+const ships = addAliens();
+
+// const onlyQueen = new Queen();
+// const worker1 = new Worker();
+// const worker2 = new Worker();
+// const worker3 = new Worker();
+// const worker4 = new Worker();
+// const worker5 = new Worker();
+// const drone1 = new Drone();
+// const drone2 = new Drone();
+// const drone3 = new Drone();
+// const drone4 = new Drone();
+// const drone5 = new Drone();
+// const drone6 = new Drone();
+// const drone7 = new Drone();
+// const drone8 = new Drone();
+
+// const ships = [
+//   onlyQueen,
+//   worker1,
+//   worker2,
+//   worker3,
+//   worker4,
+//   worker5,
+//   drone1,
+//   drone2,
+//   drone3,
+//   drone4,
+//   drone5,
+//   drone6,
+//   drone7,
+//   drone8
+// ];
 
 const button = document.getElementById("button");
 
@@ -117,7 +138,7 @@ const doDamage = () => {
 button.onclick = doDamage;
 
 const showHitPoint = () => {
-  document.getElementById("queen").innerHTML = `&#10084;${onlyQueen.hitPoints}`;
+  document.getElementById("queen").innerHTML = `&#10084;${ship[targetIndex].hitPoints}`;
   document.getElementById("worker1").innerHTML = `&#10084;${worker1.hitPoints}`;
   document.getElementById("worker2").innerHTML = `&#10084;${worker2.hitPoints}`;
   document.getElementById("worker3").innerHTML = `&#10084;${worker3.hitPoints}`;
