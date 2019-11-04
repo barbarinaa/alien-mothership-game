@@ -10,7 +10,7 @@ Clone down the repo and run yarn install.
 
 #Next steps##
 At the moment the code is functional, however aim of the next refractoring will be to make code drier.
-It will include looping over the worker and drone cons
+It will include looping over the array of alien ships and creatng html elements displaying hitPoints direcly from that loop (making showHitPoint() a loop). 
 
 
 
