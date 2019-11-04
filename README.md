@@ -1,2 +1,19 @@
 # alien-mothership-game
-A game created using JavaScript to show understanding of classes and inheritance
+A game created using vanilla JavaScript, HTML and CSS.
+
+I created this game using functional programming. I learned how to handle event listeners, and understand classes and inheritance as well as the DOM model. 
+
+##Installation##
+
+Clone down the repo and run yarn install.
+
+
+#Next steps##
+At the moment the code is functional, however aim of the next refractoring will be to make code drier.
+It will include looping over the worker and drone cons
+
+
+
+##Screenshot##
+![Screenshot](alien-mothership-game-preview.png)
+
