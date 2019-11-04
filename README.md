@@ -15,5 +15,5 @@ It will include looping over the array of alien ships and creatng html elements 
 
 
 ##Screenshot##
-![Screenshot](alien-mothership-game-preview.png)
+![Screenshot](alien-mothership-game-preview.PNG)
 
