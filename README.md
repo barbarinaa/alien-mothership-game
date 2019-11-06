@@ -1,7 +1,7 @@
 # alien-mothership-game
 A game created using Vanilla JavaScript, HTML and CSS.
 
-I created this game using functional programming. I learned how to handle event listeners, and understand classes and inheritance as well as the DOM model. 
+I created this game using object-oriented programming. I learned how to handle event listeners, and understand classes and inheritance as well as the DOM model. 
 
 ## Installation
 
